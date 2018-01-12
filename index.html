@@ -14,7 +14,7 @@
     <header class="header">
         <h1 class="header__heading readable-hidden">YeonBong Weather</h1>
         <button class="header__user-button" type="button">로그인</button>
-        <div class="header__user">
+        <div class="header__user invisible">
           <div class="user__sign-in">
             <button class="sign-in__facebook" type="button">페이스북 로그인</button>
             <button class="sign-in__google" type="button">구글 로그인</button>
@@ -26,11 +26,11 @@
     </header>
     <section class="location">
       <h2 class="location__heading readable-hidden">지역</h2>
-      <button class="location__city-select" aria-label="도시선택" aria-pressed="true">Seoul</button>
-      <div class="location__country">SOUTH KOREA</div>
-      <div class="location__time">Friday, JAN 12 11AM</div>
+      <button class="location__city-select" aria-label="도시선택" aria-pressed="true"></button>
+      <div class="location__country"></div>
+      <div class="location__time"></div>
       <!-- <div class="location__select-button" tabindex="0">도시선택</div> -->
-      <div class="location__search">
+      <div class="location__search invisible">
         <input type="search" name="search" id="search" placeholder="What City?" class="search__input">
         <ul class="search__history">
           <li>LONDON, <span>british</span><button class="history__delete-button">삭제</button></li>

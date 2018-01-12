@@ -209,9 +209,9 @@ a:hover, a:focus {
 .header__user-button {
   background-color: blue;
   float: right;
+  cursor: pointer;
 }
 .header__user {
-  display: none;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   padding: 30px;
@@ -245,6 +245,7 @@ a:hover, a:focus {
 .location__city-select {
   background-color: aqua;
   font-size: 30px;
+  cursor: pointer;
 }
 .location__country {
   font-size: 1.2rem;
@@ -255,7 +256,6 @@ a:hover, a:focus {
 
 /** 도시 선택 **/
 .location__search{
-  display: none;
   background-color: rgba(0, 0, 0, .7);
   position: absolute;
   top: 30px;
