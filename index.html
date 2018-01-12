@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
   <title>YeonBong Weather</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
   <div class="container">
     <header class="header">
@@ -56,5 +58,21 @@
       </ol>
     </section>
   </div>
+  <script src="js/app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.8.2/firebase.js">
+  </script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyBedvvs4ziIkxI-5wKqUAee84CK-rX8m7g",
+      authDomain: "yeonbong-weather.firebaseapp.com",
+      databaseURL: "https://yeonbong-weather.firebaseio.com",
+      projectId: "yeonbong-weather",
+      storageBucket: "",
+      messagingSenderId: "905404088094"
+    };
+    firebase.initializeApp(config);
+  </script>
 </body>
+
 </html>
