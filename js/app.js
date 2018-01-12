@@ -3,8 +3,8 @@ const auth = firebase.auth();
 const database = firebase.database();
 
 /* Sign in - 페이스북, 구글 */
-const facebookLoginBtn = document.querySelector('.header__facebook-login-btn');
-const googleLoginBtn = document.querySelector('.header__google-login-btn');
+const facebookLoginBtn = document.querySelector('.user__facebook-login-btn');
+const googleLoginBtn = document.querySelector('.user__google-login-btn');
 
 facebookLoginBtn.addEventListener('click', async e => {
   const provider = new firebase.auth.FacebookAuthProvider();
