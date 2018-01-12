@@ -10,7 +10,8 @@
 </head>
 
 <body>
-  <div class="container">
+  <div class="container bg-snowy">
+    <div class="hide-bg"></div>
     <header class="header">
         <h1 class="header__heading readable-hidden">YeonBong Weather</h1>
         <button class="header__user-button" type="button">로그인</button>
@@ -26,7 +27,7 @@
     </header>
     <section class="location">
       <h2 class="location__heading readable-hidden">지역</h2>
-      <button class="location__city-select" aria-label="도시선택" aria-pressed="true">Seoul</button>
+      <button class="location__city-select" aria-label="도시선택" aria-pressed="false">Seoul</button>
       <div class="location__country">SOUTH KOREA</div>
       <div class="location__time">Friday, JAN 12 11AM</div>
       <!-- <div class="location__select-button" tabindex="0">도시선택</div> -->
@@ -41,39 +42,36 @@
     </section>
     <section class="weather">
       <h2 class="weather__heading readable-hidden">날씨</h2>
-      <div class="weather__degree">21&#176;</div>
-      <div class="weather__condition">Sunny</div>
+      <div class="weather__degree" aria-label="현재 기온">-14</div>
+      <div class="weather__condition">Snowy</div>
+      <div class="weather__min-max-degree" aria-label="최저 최고 기온">
+<span>-17&#176;</span>&#32;&#47;&#32;
+
+<span>-3&#176;</span>
+
+      </div>
       <div class="weather__rainfall">28%</div>
       <div class="weather__wind">Winds ENE at 10 to 15 km/h</div>
       <ol class="weather__forecast">
         <li class="forecast">
           <a href="#" title="날짜 날씨">
             <div class="forecast__day">SAT</div>
-            <div class="forecast__degree">
-              <span>18&#176;</span>&#32;&#47;&#32;
-              <span>24&#176;</span>
-            </div>
-            <div class="forecast__condition">Sunny</div>
+            <div class="forecast__degree">-10</div>
+            <div class="forecast__condition snowy">Snowy</div>
           </a>
         </li>
         <li class="forecast">
           <a href="#" title="날짜 날씨">
             <div class="forecast__day">SAT</div>
-            <div class="forecast__degree">
-              <span>18&#176;</span>&#32;&#47;&#32;
-              <span>24&#176;</span>
-            </div>
-            <div class="forecast__condition">Sunny</div>
+            <div class="forecast__degree">-18</div>
+            <div class="forecast__condition rainy">Rainy</div>
           </a>
         </li>
         <li class="forecast">
           <a href="#" title="날짜 날씨">
             <div class="forecast__day">SAT</div>
-            <div class="forecast__degree">
-              <span>18&#176;</span>&#32;&#47;&#32;
-              <span>24&#176;</span>
-            </div>
-            <div class="forecast__condition">Sunny</div>
+            <div class="forecast__degree">3</div>
+            <div class="forecast__condition sunny">Sunny</div>
           </a>
         </li>
       </ol>
