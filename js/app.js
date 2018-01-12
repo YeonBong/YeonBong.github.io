@@ -16,7 +16,7 @@ facebookLoginBtn.addEventListener('click', async e => {
 
   // 유저 정보 표시
   const USER_INFO_STR = `
-    <div class="user__info">
+    <div class="user__info clearfix">
       <div class="info__display-name">${user.displayName}</div>
       <div class="info__profile-img-wrapper">
         <img src="${user.photoURL}" alt="" class="info__profile-img">
@@ -38,7 +38,7 @@ googleLoginBtn.addEventListener('click', async e => {
 
   // 유저 정보 표시
   const USER_INFO_STR = `
-    <div class="user__info">
+    <div class="user__info clearfix">
       <div class="info__display-name">${user.displayName}</div>
       <div class="info__profile-img-wrapper">
         <img src="${user.photoURL}" alt="" class="info__profile-img">
