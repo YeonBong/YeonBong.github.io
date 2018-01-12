@@ -2,9 +2,35 @@
 @import url('./normalize.css');
 @import url('./fonts.css');
 
+/** Hidden contents **/
+.readable-hidden,
+.a11y,
+legend {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  margin: -1px;
+  clip: rect(0, 0, 0, 0);
+}
 
-/* Reset CSS */
-/* http://meyerweb.com/eric/tools/css/reset/ 
+.a11y:focus {
+  top: 5px;
+  Left: 50%;
+  width: auto;
+  height: auto;
+  margin: 0;
+  clip: rect(auto, auto, auto, auto);
+  background: #000;
+  color: #fff;
+  padding: 5px 10px;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+
+/** Reset CSS **/
+/* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
 */
@@ -100,7 +126,7 @@ video {
 }
 
 
-/* HTML5 display-role reset for older browsers */
+/** HTML5 display-role reset for older browsers **/
 
 article,
 aside,
@@ -142,3 +168,12 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+
+
+/** Desktop **/
+@media screen and (min-width:1024px) {
+  .container {
+    width: 100%;
+  }
+}
+
