@@ -14,7 +14,13 @@
     <header class="header">
         <h1 class="header__heading readable-hidden">YeonBong Weather</h1>
         <div class="header__user">
-          <div class="user__info"></div>
+          <div class="user__info">
+            <div class="info__display-name"></div>
+            <div class="info__profile-img-wrapper">
+              <img src="" alt="" class="info__profile-img">
+            </div>
+            <div class="info__email"></div>
+          </div>
           <div class="user__sign-in">
             <button class="sign-in__facebook" type="button">페이스북 로그인</button>
             <button class="sign-in__google" type="button">구글 로그인</button>
@@ -72,9 +78,7 @@
       </ol>
     </section>
   </div>
-  <script src="js/app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/4.8.2/firebase.js">
-  </script>
+  <script src="https://www.gstatic.com/firebasejs/4.8.2/firebase.js"></script>
   <script>
     // Initialize Firebase
     var config = {
@@ -82,11 +86,12 @@
       authDomain: "yeonbong-weather.firebaseapp.com",
       databaseURL: "https://yeonbong-weather.firebaseio.com",
       projectId: "yeonbong-weather",
-      storageBucket: "",
+      storageBucket: "yeonbong-weather.appspot.com",
       messagingSenderId: "905404088094"
     };
     firebase.initializeApp(config);
   </script>
+  <script src="js/app.js"></script>
 </body>
 
 </html>
