@@ -340,11 +340,13 @@ a:hover, a:focus {
 }
 
 /** 도시 선택 **/
-.location__search{
+.location__search {
   background-color: rgba(0, 0, 0, .7);
   position: absolute;
-  top: 30px;
+  top: 100px;
   padding: 10px 10px 0 10px;
+  z-index: 10;
+  border-radius: 5px;
 }
 .search__input{
   color: red;
