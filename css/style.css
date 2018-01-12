@@ -2,39 +2,14 @@
 @import url('./normalize.css');
 @import url('./fonts.css');
 
-/** Hidden contents **/
-.readable-hidden,
-.a11y,
-legend {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  margin: -1px;
-  clip: rect(0, 0, 0, 0);
-}
-
-.a11y:focus {
-  top: 5px;
-  Left: 50%;
-  width: auto;
-  height: auto;
-  margin: 0;
-  clip: rect(auto, auto, auto, auto);
-  background: #000;
-  color: #fff;
-  padding: 5px 10px;
-  transform: translateX(-50%);
-  z-index: 10;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 
-/** Reset CSS **/
->>>>>>> master
-/* http://meyerweb.com/eric/tools/css/reset/
-   v2.0 | 20110126
-   License: none (public domain)
-*/
+/* Reset CSS */
 
 html,
 body,
@@ -171,10 +146,10 @@ table {
 }
 
 /* 본문 스타일 */
-html{
+html {
   font-size: 10px;
 }
-body{
+body {
   font-family: 'Noto Sans Regular', sans-serif;
   font-size: 1.4rem;
   color: #263358;
@@ -182,50 +157,157 @@ body{
 }
 
 /* 링크 스타일 */
-a{
+a {
   color: inherit;
   text-decoration: none;
 }
-a:hover, a:focus{
+a:hover, a:focus {
   color: red;
 }
 
 /* 숨김 콘텐츠 */
-.readable-hidden, legend{
+.readable-hidden, legend {
   position: absolute;
   width: 1px;
   height: 1px;
   margin: -1px;
   overflow: hidden;
+  clip: rect(0, 0, 0, 0);
 }
 
 /* 공통 스타일 */
-.clearfix::after{
+.clearfix::after {
   content: "";
   display: block;
   clear: both;
 }
 
 /* 기본 레이아웃 */
-.container{
-  width: 700px;
+.container {
+  width: 375px;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  padding: 20px;
+  background-color: white;
 }
 
 /* 헤 더 */
-.header{
+.header {
+  position: absolute;
+  right: 0;
   background-color: beige;
+  z-index: 100;
+}
+.header__user-button {
+  background-color: blue;
+  float: right;
+}
+.header__user {
+  display: none;
+  width: 400px;
+  background-color: rgba(0, 0, 0, .5);
+  padding: 30px;
+}
+.user__info {
+  background-color: silver;
+}
+.info__display-name,
+.info__email {
+  float: right;
+  width: 250px;
+}
+.info__display-name {
+  background-color: lightblue;
+}
+.info__profile-img-wrapper {
+  background-color: slateblue;
+  float: left;
+  width: 80px;
+  height: 80px;
+}
+.info__email {
+  background-color: saddlebrown;
 }
 /* 지 역 */
-.location{
+.location {
+  position: relative;
   background-color: pink;
+  /* height: 300px; */
+}
+.location__city-select {
+  background-color: aqua;
+  font-size: 30px;
+}
+.location__country {
+  font-size: 1.2rem;
+}
+.location__time {
+  background-color: darkkhaki;
+}
+
+/** 도시 선택 **/
+.location__search{
+  display: none;
+  background-color: rgba(0, 0, 0, .7);
+  position: absolute;
+  top: 30px;
+  padding: 10px 10px 0 10px;
+}
+.search__input{
+  color: red;
+}
+.search__history{
+  color: white;
+}
+.search__history li{
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 1);
+}
+.search__history li:last-child{
+  border-bottom: 0;
+}
+.history__delete-button{
+  float: right;
 }
 /* 날 씨 */
-.weather{
+.weather {
+  height: 300px;
+  position: relative;
   background-color: salmon;
+}
+.weather__degree{
+  font-size: 50px;
+}
+.weather__condition{
+  background-color: gold;
+}
+.weather__rainfall{
+  background-color: tomato;
+}
+.weather__wind{
+  background-color: white;
+}
+/** 기상 예보 **/
+.weather__forecast{
+  background-color: burlywood;
+  position: absolute;
+  bottom: 0;
+}
+.forecast{
+  background-color: aqua;
+  float: left;
+}
+.forecast__day{
+  background-color: pink;
+}
+.forecast__degree{
+  background-color: yellow;
+}
+.forecast__condition{
+  /* float: right; */
+  background-color: greenyellow;
 }
 
 /** Desktop **/

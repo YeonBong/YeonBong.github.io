@@ -13,13 +13,14 @@
   <div class="container">
     <header class="header">
         <h1 class="header__heading readable-hidden">YeonBong Weather</h1>
+        <button class="header__user-button" type="button">로그인</button>
         <div class="header__user">
-          <div class="user__info">
-            <div class="info__display-name"></div>
+          <div class="user__info clearfix">
+            <div class="info__display-name">Bong Kim</div>
             <div class="info__profile-img-wrapper">
-              <img src="" alt="" class="info__profile-img">
+              <img src="#" alt="user-profile" class="info__profile-img">
             </div>
-            <div class="info__email"></div>
+            <div class="info__email">underbleu.dev@gmail.com</div>
           </div>
           <div class="user__sign-in">
             <button class="sign-in__facebook" type="button">페이스북 로그인</button>
@@ -32,11 +33,11 @@
     </header>
     <section class="location">
       <h2 class="location__heading readable-hidden">지역</h2>
-      <div class="location__city">Seoul<span>SOUTH-KOREA</span></div>
+      <button class="location__city-select" aria-label="도시선택" aria-pressed="true">Seoul</button>
+      <div class="location__country">SOUTH KOREA</div>
       <div class="location__time">Friday, JAN 12 11AM</div>
-      <div class="location__select-button" tabindex="0">도시선택</div>
+      <!-- <div class="location__select-button" tabindex="0">도시선택</div> -->
       <div class="location__search">
-        <label for="search" class="readable-hidden">도시 선택</label>
         <input type="search" name="search" id="search" placeholder="What City?" class="search__input">
         <ul class="search__history">
           <li>LONDON, <span>british</span><button class="history__delete-button">삭제</button></li>
@@ -47,7 +48,7 @@
     </section>
     <section class="weather">
       <h2 class="weather__heading readable-hidden">날씨</h2>
-      <div class="weather__degree">21</div>
+      <div class="weather__degree">21&#176;</div>
       <div class="weather__condition">Sunny</div>
       <div class="weather__rainfall">28%</div>
       <div class="weather__wind">Winds ENE at 10 to 15 km/h</div>
