@@ -20,6 +20,7 @@ const weatherCondition = document.querySelector(".weather__condition");
 const weatherRainfall = document.querySelector(".weather__rainfall");
 const weatherWind = document.querySelector(".weather__wind");
 const weatherForecast = document.querySelector(".weather__forecast");
+const searchHistory = document.querySelector(".search__history");
 
 async function init() {
   const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=seoul&APPID=6c80032342ac8a4aecd41a0bbd4bdc18`);
@@ -43,7 +44,7 @@ async function init() {
       hour = today.getHours(),
       minute = today.getMinutes(),
       second = today.getSeconds();
-      ampm = hour >= 12 ? "PM" : "AM";
+    ampm = hour >= 12 ? "PM" : "AM";
 
     // 12시간제로 변경
     hour = hour % 12;
@@ -59,6 +60,32 @@ async function init() {
   })();
 }
 
+async function enumSearchHistory() {
+  if (auth.currentUser) {
+    searchHistory.innerHTML = '';
+    const uid = auth.currentUser.uid;
+    const snapshot = await database.ref(`/users/${uid}/regions`).orderByKey().limitToLast(5).once('value');
+    const datas = snapshot.val();
+    for (const [countryId, {
+        city,
+        country
+      }] of Object.entries(datas)) {
+      const listEl = document.createElement('li');
+      listEl.innerHTML = `
+        ${city}, <span>${country}</span>
+        `;
+      const buttonEl = document.createElement('button');
+      buttonEl.textContent = '삭제';
+      buttonEl.classList.add('history__delete-button');
+      buttonEl.addEventListener('click', e => {
+        database.ref(`/users/${uid}/regions/${countryId}`).remove();
+        e.currentTarget.parentNode.remove();
+      });
+      searchHistory.appendChild(listEl);
+      listEl.appendChild(buttonEl);
+    }
+  }
+}
 
 
 /* Sign in */
@@ -88,6 +115,7 @@ facebookLoginBtn.addEventListener('click', async e => {
     `;
 
   headerUser.insertAdjacentHTML("afterbegin", USER_INFO_STR);
+  headerUser.classList.toggle("invisible");
 });
 
 googleLoginBtn.addEventListener('click', async e => {
@@ -108,6 +136,7 @@ googleLoginBtn.addEventListener('click', async e => {
     </div>
     `;
   headerUser.insertAdjacentHTML("afterbegin", USER_INFO_STR);
+  headerUser.classList.toggle("invisible");
 })
 
 
@@ -116,6 +145,7 @@ googleLoginBtn.addEventListener('click', async e => {
 signOutBtn.addEventListener('click', async e => {
   auth.signOut()
     .then(() => {
+      const userInfo = document.querySelector(".user__info");
       userInfo.remove();
     });
 });
@@ -154,6 +184,7 @@ function debounce(cb, time) {
 /* Search */
 citySelect.addEventListener('click', e => {
   locationSearch.classList.toggle("invisible");
+  enumSearchHistory();
 })
 
 
@@ -212,8 +243,36 @@ searchInput.addEventListener('input', e => {
     }
 
     locationCountry.textContent = country || data.sys.country;
+
+    const uid = auth.currentUser ? auth.currentUser.uid : null;
+    if (uid) {
+      await database.ref(`/users/${uid}/regions`).push({
+        city: citySelect.textContent,
+        country: country
+      })
+    }
+
+    // const listEl = document.createElement("li");
+    // listEl.innerHTML = `
+    //     ${citySelect.textContent}, <span>${country}</span>
+    //     `;
+    // const buttonEl = document.createElement("button");
+    // buttonEl.textContent = "삭제";
+    // buttonEl.classList.add("history__delete-button");
+    // buttonEl.addEventListener("click", e => {
+
+    //   const snapshot = await database.ref(`/users/${uid}/regions`).once('value');
+    //   const datas = snapshot.val();
+    //   const countryId = Object.keys(datas)
+    //   database.ref(`/users/${uid}/regions/${countryId}`).remove();
+    //   e.currentTarget.parentNode.remove();
+    // });
+    // searchHistory.appendChild(listEl);
+    // listEl.appendChild(buttonEl);
+
+    // searchHistory.appendChild();
   }, 1000);
   debounceListener();
-})
+});
 
 init();
