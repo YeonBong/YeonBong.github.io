@@ -2,6 +2,7 @@
 const auth = firebase.auth();
 const database = firebase.database();
 
+
 /* Sign in - 페이스북, 구글 */
 const facebookLoginBtn = document.querySelector('.sign-in__facebook');
 const googleLoginBtn = document.querySelector('.sign-in__google');
@@ -75,3 +76,35 @@ auth.onAuthStateChanged(user => {
     userSignOut.classList.add('invisible');
   }
 })
+
+
+/** 도시 검색 **/
+// debounce
+let timeoutId;
+function debounce(cb, time) {
+  return function() {
+    if (timeoutId) {
+      clearTimeout(timeoutId);
+    }
+    timeoutId = setTimeout(() => {
+      cb();
+      timeoutId = null;
+    }, time);
+  };
+}
+
+const searchInput = document.querySelector('.search__input');
+
+searchInput.addEventListener('input', e => {
+  const debounceListener = debounce(() => {
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${e.target.value}&APPID=6c80032342ac8a4aecd41a0bbd4bdc18`)
+    .then(res => res.json())
+    .then(data => {console.log(data)})
+    .catch(e => {
+      console.log(e.message)
+    })
+  }, 1000);
+  debounceListener();
+})
+
+
