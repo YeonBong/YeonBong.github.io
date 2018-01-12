@@ -191,13 +191,15 @@ a:hover, a:focus {
   transform: translate(-50%, -50%);
   padding: 20px;
   background-color: white;
+  height: 100vh;
+  max-height: 750px;
 }
 
 /* 헤 더 */
 .header {
+  width: 100%;
   position: absolute;
   right: 0;
-  background-color: beige;
   z-index: 100;
 }
 .header__user-button {
@@ -206,8 +208,8 @@ a:hover, a:focus {
 }
 .header__user {
   display: none;
-  width: 400px;
-  background-color: rgba(0, 0, 0, .5);
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
   padding: 30px;
 }
 .user__info {
@@ -234,7 +236,7 @@ a:hover, a:focus {
 .location {
   position: relative;
   background-color: pink;
-  /* height: 300px; */
+  height: 20%;
 }
 .location__city-select {
   background-color: aqua;
@@ -273,12 +275,14 @@ a:hover, a:focus {
 }
 /* 날 씨 */
 .weather {
-  height: 300px;
+  height: 80%;
   position: relative;
   background-color: salmon;
+  border: 5px solid black;
 }
 .weather__degree{
   font-size: 50px;
+  background-color: skyblue;
 }
 .weather__condition{
   background-color: gold;
@@ -313,6 +317,5 @@ a:hover, a:focus {
 /** Desktop **/
 @media screen and (min-width:1024px) {
   .container {
-    width: 100%;
   }
 }
